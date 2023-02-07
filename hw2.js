@@ -1,9 +1,11 @@
+// Author: Carlos Urbina (ucarlos) 2/7/23
+
 let focusBox = document.getElementById("left-box");
 let unfocusBox = document.getElementById("right-box");
+let focusUnit = document.getElementById("left-unit");
+let unfocusUnit = document.getElementById("right-unit");
 
 function convert() {
-    let unit1 = document.getElementById("unit1");
-    let unit2 = document.getElementById("unit2");
 
     // console.log("converting " + leftBox.value + " " + unit1.value + " -> " + unit2.value);
 
@@ -16,10 +18,10 @@ function convert() {
         displayMessage("Invalid input!");
     }
     else {
-        let newTemp = calculateTemp(unit1.value, unit2.value, parseInt(focusBox.value));
+        let newTemp = calculateTemp(focusUnit.value, unfocusUnit.value, parseInt(focusBox.value));
         if (!isNaN(newTemp)) {
             unfocusBox.value = newTemp;
-            displayMessage(`${unit1.value} to ${unit2.value} converted!`)
+            displayMessage(`${focusUnit.value} to ${unfocusUnit.value} converted!`)
         } 
         else {
             unfocusBox.value = '';
@@ -82,6 +84,10 @@ function calculateTemp(startUnit, endUnit, val) {
     return NaN;
 }
 
+/**
+ * Function to display a message on the banner.
+ * @param msg Message to display.
+ */
 function displayMessage(msg) {
     console.log(msg);
     let banner = document.getElementById("notif");
@@ -93,12 +99,22 @@ function displayMessage(msg) {
     banner.appendChild(message);
 }
 
+/**
+ * Function to switch the current "in-focus" variables.
+ */
 function leftFocus() {
     focusBox = document.getElementById("left-box");
+    focusUnit = document.getElementById("left-unit");
     unfocusBox = document.getElementById("right-box");
+    unfocusUnit = document.getElementById("right-unit");
 }
 
+/**
+* Function to switch the current "in-focus" variables.
+*/
 function rightFocus() {
     focusBox = document.getElementById("right-box");
+    focusUnit = document.getElementById("right-unit");
     unfocusBox = document.getElementById("left-box");
+    unfocusUnit = document.getElementById("left-unit");
 }
