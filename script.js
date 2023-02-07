@@ -11,7 +11,7 @@ function convert() {
         unfocusBox.value = '';
         displayMessage("Insert number!");
     }
-    else if (isNaN(parseInt(leftBox.value))) {
+    else if (isNaN(parseInt(focusBox.value))) {
         unfocusBox.value = '';
         displayMessage("Invalid input!");
     }
