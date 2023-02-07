@@ -1,14 +1,17 @@
 // Author: Carlos Urbina (ucarlos) 2/7/23
 
+// current focus variables
 let focusBox = document.getElementById("left-box");
 let unfocusBox = document.getElementById("right-box");
 let focusUnit = document.getElementById("left-unit");
 let unfocusUnit = document.getElementById("right-unit");
 
+/**
+ * Main function that handles the gathering of user input and calls other helper functions.
+ */
 function convert() {
 
-    // console.log("converting " + leftBox.value + " " + unit1.value + " -> " + unit2.value);
-
+    // check for invalid input
     if (focusBox.value == '') {
         unfocusBox.value = '';
         displayMessage("Insert number!");
@@ -19,11 +22,12 @@ function convert() {
     }
     else {
         let newTemp = calculateTemp(focusUnit.value, unfocusUnit.value, parseInt(focusBox.value));
-        if (!isNaN(newTemp)) {
+
+        if (!isNaN(newTemp)) { // if result is valid
             unfocusBox.value = newTemp;
             displayMessage(`${focusUnit.value} to ${unfocusUnit.value} converted!`)
         } 
-        else {
+        else { // if result is invalid
             unfocusBox.value = '';
         }
     }
@@ -36,7 +40,7 @@ function convert() {
  * @param startUnit Celsius, Kelvin or Farenheit
  * @param endUnit Celsius, Kelvin or Farenheit
  * @param val degrees
- * @returns 
+ * @returns converted temperature value
  */
 function calculateTemp(startUnit, endUnit, val) {
     if (startUnit == "Celsius") {
@@ -53,6 +57,7 @@ function calculateTemp(startUnit, endUnit, val) {
         }
         return val;
     }
+
     if (startUnit == "Kelvin") {
         if (val < 0) {
             displayMessage("There is no negative Kelvin!");
@@ -66,6 +71,7 @@ function calculateTemp(startUnit, endUnit, val) {
         }
         return val;
     }
+
     if (startUnit == "Farenheit") {
         if (endUnit == "Celsius") {
             return (5.0/9.0) * (val - 32);
@@ -81,7 +87,7 @@ function calculateTemp(startUnit, endUnit, val) {
         return val;
     }
 
-    return NaN;
+    return NaN; // default value
 }
 
 /**
@@ -91,7 +97,7 @@ function calculateTemp(startUnit, endUnit, val) {
 function displayMessage(msg) {
     console.log(msg);
     let banner = document.getElementById("notif");
-    if (banner.firstChild) {
+    if (banner.firstChild) { // remove older message
         banner.firstChild.remove();
     }
     let message = document.createElement("h1");

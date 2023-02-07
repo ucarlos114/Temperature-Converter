@@ -2,51 +2,54 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="hw2.css">
-        <script src="hw2.js"></script>
-    </head>
 
-    <body>
-        <main class="grid-container">
-            <!-- Row 1 -->
-            <div class="grid-item span-row" id="temp-converter">
-                <h1>Temperature Converter</h1>
-            </div>
+<head>
+    <link rel="stylesheet" href="hw2.css">
+    <script src="hw2.js"></script>
+</head>
 
-            <!-- Row 2 -->
-            <div class="grid-item left-span">
-                <input type="text" class="box" id="left-box" onclick="leftFocus()">
-            </div>
-            <div class="grid-item right-span">
-                <input type="text" class="box" id="right-box" onclick="rightFocus()">
-            </div>
+<body>
+    <main class="grid-container">
 
-            <!-- Row 3 -->
-            <div class="grid-item left-span row2">
-                <select name="temp" id="left-unit">
-                    <option value="Celsius">Celsius</option>
-                    <option value="Farenheit">Farenheit</option>
-                    <option value="Kelvin">Kelvin</option>
-                </select>
-            </div>
-            <div class="grid-item right-span row2">
-                <select name="temp" id="right-unit">
-                    <option value="Celsius">Celsius</option>
-                    <option value="Farenheit">Farenheit</option>
-                    <option value="Kelvin">Kelvin</option>
-                </select>
-            </div>
+        <!-- Row 1 Title -->
+        <div class="grid-item span-row" id="temp-converter">
+            <h1>Temperature Converter</h1>
+        </div>
 
-            <!-- Row 4 -->
-            <div class="grid-item"></div>
-            <div class="grid-item middle-span">
-                <button id="submit" onclick="convert()">Convert!</button>
-            </div>
-            <div class="grid-item"></div>
+        <!-- Row 2 Input Boxes -->
+        <div class="grid-item left-span">
+            <input type="text" class="box" id="left-box" onclick="leftFocus()">
+        </div>
+        <div class="grid-item right-span">
+            <input type="text" class="box" id="right-box" onclick="rightFocus()">
+        </div>
 
-            <!-- Row 5 -->
-            <div class="grid-item span-row" id="notif"></div>
-        </main>
-    </body>
+        <!-- Row 3 Unit Selectors -->
+        <div class="grid-item left-span row2">
+            <select name="temp" id="left-unit">
+                <option value="Celsius">Celsius</option>
+                <option value="Farenheit">Farenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+        </div>
+        <div class="grid-item right-span row2">
+            <select name="temp" id="right-unit">
+                <option value="Celsius">Celsius</option>
+                <option value="Farenheit">Farenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+        </div>
+
+        <!-- Row 4 Submit Button -->
+        <div class="grid-item"></div>
+        <div class="grid-item middle-span">
+            <button id="submit" onclick="convert()">Convert!</button>
+        </div>
+        <div class="grid-item"></div>
+
+        <!-- Row 5 Message Banner -->
+        <div class="grid-item span-row" id="notif"></div>
+    </main>
+</body>
+
 </html>
