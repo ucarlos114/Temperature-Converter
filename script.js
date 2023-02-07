@@ -2,25 +2,28 @@ let focusBox = document.getElementById("left-box");
 let unfocusBox = document.getElementById("right-box");
 
 function convert() {
-    let leftBox = focusBox;
-    let rightBox = unfocusBox;
     let unit1 = document.getElementById("unit1");
     let unit2 = document.getElementById("unit2");
 
     // console.log("converting " + leftBox.value + " " + unit1.value + " -> " + unit2.value);
 
-    if (leftBox.value == '') {
+    if (focusBox.value == '') {
+        unfocusBox.value = '';
         displayMessage("Insert number!");
     }
     else if (isNaN(parseInt(leftBox.value))) {
+        unfocusBox.value = '';
         displayMessage("Invalid input!");
     }
     else {
-        let newTemp = calculateTemp(unit1.value, unit2.value, parseInt(leftBox.value));
+        let newTemp = calculateTemp(unit1.value, unit2.value, parseInt(focusBox.value));
         if (!isNaN(newTemp)) {
-            rightBox.value = newTemp;
+            unfocusBox.value = newTemp;
             displayMessage(`${unit1.value} to ${unit2.value} converted!`)
         } 
+        else {
+            unfocusBox.value = '';
+        }
     }
 }
 
